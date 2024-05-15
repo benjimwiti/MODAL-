@@ -1,33 +1,28 @@
-let btn = document.querySelector('#new-quote')
-let quote = document.querySelector('.quote')
-let person = document.querySelector('.person')
+//VARIABLES
+let openBtn = document.getElementById('open-btn')
+let closeBtn = document.getElementById('close-btn')
+let modal = document.getElementById('modal-container')
 
-const quotes = [
-    {
-quote: 'A rose by any other name would smell as sweet.',
-person: 'William Shakespeare'
-    },
-    {
-quote: 'Ask not what your country can do for you; ask what you can do for your country.',
-person: 'John Kennedy'
-    },
-    {
-quote: 'Ask, and it shall be given you; seek, and you shall find.',
-person: 'The Bible'
-    },
-    {
-quote: 'The truth will set you free.',
-person: 'The Bible'
-    },
-    {
-quote: 'The only thing we have to fear is fear itself.',
-person: 'Franklin D. Roosevelt'
-    }
-]
-
-btn.addEventListener('click' , function() {
-    let rnq = Math.floor(Math.random()*quotes.length)
-    quote.textContent = quotes[rnq].quote
-    person.textContent = quotes[rnq].person  
+//EVENTS
+openBtn.addEventListener('click', function() {
+    modal.style.display = `block`
+    console.log(modal.style.animationName)
 })
-    
+closeBtn.addEventListener('click' , function(){
+    modal.style.display = `none`
+})
+window.addEventListener('click', function(e){
+    if(e.target === modal ) {
+        modal.style.display = `none`
+    }
+})
+
+//FUCTIONS
+setTimeout(() => {
+    slowLoad()
+},1000)
+
+function slowLoad () {
+        let body1 = document.querySelector('body')
+        body1.style.backgroundImage = ` url(./img/project2.jpg)`
+}

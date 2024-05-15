@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
+    transition: all 2s;
 }
 
 body {
@@ -12,7 +13,6 @@ body {
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: scroll;
-    transition: all 2s;
 }
 #body2 {
     background-color: rgba(0, 0, 0, 0.5);
@@ -22,49 +22,54 @@ body {
     align-items: center;
     height: 100vh;
     text-align: center;
+    position: relative;
 }
 
-.container {
-    padding: 4px;
-}
-.header {
-    font-size: 1.2rem;
-    border:1px solid rgba(255, 253, 253, 0.575);
-    width: 80%;
-    margin: 8px auto;
-    border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.267);
-    color: white;
-    padding: 8px;
-}
-.main-content {
-    width: 100;
-    padding: 4px;
-    background-color: rgba(0, 0, 0, 0.267);
-    color: white;
-    border-radius: 0px 8px;
-    box-shadow: 0 0 10px 1px ;
-}
-.main-content .text-area {
-    font-size: x-large;
-    font-family: "Roboto", sans-serif;
-    font-weight: 100;
-    font-style: italic;
-    padding: 4px;
-}
-.main-content .person {
-    font-size: xx-large;
-    font-family: "Roboto", sans-serif;
-    font-weight: 500;
-    font-style: normal;
-    margin-top: 8px;
-}
-.button-area button {
-    padding: 8px;
-    margin-top: 8px;
-    border: 1px solid black;
+#open-btn { 
+    position: absolute;
+    bottom: 20%;
+    left: 20%;
+    padding: 16px;
+    font-size: larger;
+    font-family: 'Lato',sans-serif;
+    font-weight: 200;
+    border: 1px solid blueviolet ;
     border-radius: 4px;
+    box-shadow: 0 0 4px;
+    background-color: rgba(250, 245, 245, 0.726);
+    &:hover {
+        background-color: black;/* flying different emojis */
+        /* transfom scale from 0-1 setTimeout */
+    }
 }
-.button-area button:active {
-    background-color: rgba(255, 255, 255, 0.575);
+
+#modal {
+    background-color: azure;/* color-show */
+    width: fit-content;
+    height: fit-content;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
 }
+
+@keyframes modal {
+    0%{top: -50%; left: 50%; z-index: 1;}
+    100%{top:50%; left: 50%;}
+}
+
+#modal-container {
+    display: none;
+    position: absolute;
+    animation: modal 1s ease-out  2 forwards;
+    z-index: 1;
+}
+
+#close-btn {
+    font-size: 4rem;
+    &:hover {
+        color: red;
+    }
+}
+
