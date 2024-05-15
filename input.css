@@ -12,6 +12,7 @@ body {
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: scroll;
+    transition: all 2s;
 }
 #body2 {
     background-color: rgba(0, 0, 0, 0.5);
